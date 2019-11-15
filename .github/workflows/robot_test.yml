@@ -24,7 +24,7 @@ jobs:
     - name: Install BROWSER drivers
       run: |
         pip install webdrivermanager
-        webdrivermanager firefox chrome --linkpath /usr/local/bin
+        sudo webdrivermanager firefox chrome --linkpath /usr/local/bin
     - name: Test with Robot
       run: |
         robot -d test_output tests/
