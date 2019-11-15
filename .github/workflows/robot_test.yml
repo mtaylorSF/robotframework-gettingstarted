@@ -21,6 +21,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip3 install -r requirements.txt
+    - name: Install BROWSER drivers
+      run |
+        pip install webdrivermanager
+        webdrivermanager firefox chrome --linkpath /usr/local/bin
     - name: Test with Robot
       run: |
         robot -d test_output tests/
