@@ -6,7 +6,7 @@ rm geckodriver-v0.26.0-linux64.tar.gz
 
 ## Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb --instdir=/usr/bin
 
 ## Chromedriver
 wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
