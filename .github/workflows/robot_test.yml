@@ -1,4 +1,4 @@
-name: Robot Test
+name: Test Suite
 
 on: [push]
 
@@ -22,4 +22,4 @@ jobs:
         ./.github/scripts/install_drivers.sh
     - name: Test with Robot
       run: |
-        robot -v BROWSER:${{ matrix.browser }} -d test_output tests/
+        robot -v BROWSER:${{ matrix.browser }} -d test_output tests/04_launchBrowser.robot
