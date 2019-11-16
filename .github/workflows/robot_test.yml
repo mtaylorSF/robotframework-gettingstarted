@@ -1,4 +1,4 @@
-name: Test Suite
+name: Robot CI
 
 on: [push]
 
@@ -23,3 +23,8 @@ jobs:
     - name: Test with Robot
       run: |
         robot -v BROWSER:${{ matrix.browser }} -d test_output tests/04_launchBrowser.robot
+    - name: Archive Test reports
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-report
+        path: test_output
