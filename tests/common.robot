@@ -9,11 +9,5 @@ ${TWEET_WIDGET}     //*[@id="twitter-widget-0"]
 
 *** Keywords ***
 Open Browser To Robot Framework Page
-  ${args} =     Create List    --disable-gpu    --headless   --no-sandbox    --disable-dev-shm-usage  --dns-prefetch-disable
-  ${options} =     Create Dictionary    args=${args}
-  ${desiredcaps} =     Create Dictionary    chromeOptions=${options}
-
-  Open Browser  url=${URL}
-  ...           browser=${BROWSER}
-  ...           desired_capabilities=${desiredcaps}
+  Open Browser  ${URL}    ${BROWSER}
   Maximize Browser Window
