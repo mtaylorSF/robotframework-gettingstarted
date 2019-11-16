@@ -4,27 +4,22 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
         python-version: [3.5, 3.6, 3.7]
-
+        browser: [chrome, firefox]
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip3 install -r requirements.txt
     - name: Install BROWSER drivers
       run: |
-        pip install webdrivermanager
-        sudo webdrivermanager firefox chrome --linkpath /usr/local/bin
+        ./.github/scripts/install_chromedriver.sh
+        ./.github/scripts/install_geckodriver.sh
     - name: Test with Robot
       run: |
         robot -d test_output tests/
